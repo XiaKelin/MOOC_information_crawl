@@ -1,0 +1,88 @@
+注意，主题帖和回复帖以及评论在不同的包中，且楼中楼不包括进回复帖数，而是在某个回复帖的评论数中计数
+如：在主题为“中国文化”这个帖子中，一共有2条回复
+<1>中国文化博大精深（评论数2）
+        是啊
+        真的很厉害
+<2>我爱中国文化！（评论数1）
+        我也是
+
+
+一、帖子主题
+
+PostBean.getAllPostsPagination.dwr
+
+在response中：搜索title，即可得到这一页的20个主题名
+
+两个title之间的就是一个主题帖所包含的所有内容
+1、第一行是主题帖的相关信息，包括主题名、主题描述、浏览数、回复数、投票数、发布时间等
+    countBrowse：浏览量
+    countReply：回复数
+    countVote：投票数
+    forumId：
+    id：主题帖的编号（帖子的唯一标识）***
+    postTime：发表时间时间戳
+    shortIntroduction：帖子描述
+    termId：
+    title：主题名称
+    poster：发帖对象        s7.poster=s1
+2、第二行是发帖人的相关信息
+    id：发帖人的用户id  （用户的唯一标识）
+    nickName：昵称
+    realName：真实姓名
+    studentNumber：
+    userName="C78A15CBC32C2E5A4A37D49C2410D322"（怀疑是加密信息）
+
+
+
+二、回复帖
+
+getPaginationReplys.dwr
+
+在response中：搜索content，即可得到这一条回复的信息
+
+两个content之间的就是一个回复帖所包含的所有内容
+1、第一行是回复帖的信息
+    content：回复的内容
+    countComment：评论数
+    countVote：支持数
+    forumId：
+    gmtCreate：
+    id：帖子的id（帖子的唯一标识） ***
+    postId：主题帖的编号
+    replyTime：回复时间
+    replyer：写这个回复帖的对象  s1.replyer=s3
+2、第二行是写回复帖的用户的信息
+    id：用户id （用户的唯一标识）
+    nickName：昵称
+    realName：真实姓名
+    studentNumber：
+    userName：用户名  yueyaodong2014@163.com
+
+
+三、评论
+
+getPaginationComments.dwr
+
+在response中：搜索content，即可得到这一条评论的信息
+
+两个content之间的就是一个评论所包含的所有内容
+1、第一行是评论的具体信息
+    commentTime：评论时间
+    content：评论内容
+    countVote：支持数
+    id：评论编号（评论的唯一标识）
+    postId：主题帖的id
+    replyId：回复帖的id
+    commentor：评论人对象     s1.commentor=s3;s1.commentorId=1406029550
+2、第二行是评论者信息
+    id：用户id （用户的唯一标识）
+    nickName：昵称
+    realName：真实姓名
+    studentNumber：
+    userName：用户名
+
+
+
+
+
+
